@@ -33,6 +33,7 @@
 
 ## 📁 Структура папок
 
+```text
 C:\mpv\
 │   mpv.com
 │   mpv.exe
@@ -44,7 +45,7 @@ C:\mpv\
     └───scripts
             autorefresh.lua
             sponsorblock_minimal.lua
-
+```
 
 ---
 
