@@ -47,6 +47,7 @@ C:\mpv\
             autorefresh.lua
             sponsorblock_minimal.lua
 
+
 ---
 
 ## ⚙️ Конфигурационные файлы
