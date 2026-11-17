@@ -43,7 +43,6 @@ C:\mpv\
     │   input.conf
     │   mpv.conf
     └───scripts
-            autorefresh.lua
             sponsorblock_minimal.lua
 
 ```
@@ -97,40 +96,13 @@ ENTER playlist-next
 BS playlist-prev
 
 # Manual refresh & Quit
-r script-binding manual-refresh
 q quit
 
 ```
 
 ---
 
-## 📜 Lua Scripts
-
-### 1. `scripts/autorefresh.lua`
-
-Handles manual playlist refreshing via the `r` key:
-
-```lua
--- autorefresh.lua for mpv
--- Allows refreshing the playlist on the fly via hotkey
-
-local mp = require 'mp'
-
--- Playlist refresh function
-function refresh_playlist()
-    mp.msg.info("Refreshing playlist...")
-    mp.command("loadfile ${path} append-or-play")
-end
-
--- Register command for hotkey binding
-mp.register_script_message("refresh-playlist", refresh_playlist)
-
--- Bind 'r' key for manual refresh
-mp.add_key_binding("r", "manual-refresh", refresh_playlist)
-
-```
-
-### 2. `scripts/sponsorblock_minimal.lua`
+### `scripts/sponsorblock_minimal.lua`
 
 Optimized script for automatically skipping unwanted segments (runs via system `curl` with zero external dependencies):
 
