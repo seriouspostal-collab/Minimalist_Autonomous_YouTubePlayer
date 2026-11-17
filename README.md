@@ -43,7 +43,6 @@ C:\mpv\
     │   input.conf
     │   mpv.conf
     └───scripts
-            autorefresh.lua
             sponsorblock_minimal.lua
 ```
 
@@ -94,42 +93,13 @@ ENTER playlist-next
 BS playlist-prev
 
 # Выход
-r script-binding manual-refresh
 q quit
 
 ```
 
 ---
 
-## 📜 Lua-скрипты
-
-### 1. `scripts/autorefresh.lua`
-
-Отвечает за ручное обновление плейлиста по клавише `r` и автоматическое обновление при выходе ноутбука из спящего режима (`resume`):
-
-```lua
--- autorefresh.lua for mpv
--- Позволяет обновлять плейлист на лету по горячей клавише или событию
-
-local mp = require 'mp'
-
--- Функция обновления плейлиста
-function refresh_playlist()
-    mp.msg.info("Обновление плейлиста...")
-    -- Перезагружаем текущий элемент/плейлист с сохранением позиции
-    mp.command("script-message uosc-flash-message \"Обновление плейлиста...\"")
-    mp.command("loadfile ${path} append-or-play") -- или аналог перезапроса yt-dlp
-end
-
--- Регистрируем команду, которую можно повесить на горячую клавишу
-mp.register_script_message("refresh-playlist", refresh_playlist)
-
--- Привязываем горячую клавишу 'r' для обновления в input.conf или прямо здесь
-mp.add_key_binding("r", "manual-refresh", refresh_playlist)
-
-```
-
-### 2. `scripts/sponsorblock_minimal.lua`
+## `scripts/sponsorblock_minimal.lua`
 
 Оптимизированный скрипт автоматического пропуска ненужных сегментов (работает через системный `curl` без внешних зависимостей):
 
