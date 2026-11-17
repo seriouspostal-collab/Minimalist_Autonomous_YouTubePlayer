@@ -222,6 +222,7 @@ end)
 @echo off
 REM Запуск mpv с открытием вашего YouTube-плейлиста или ссылки на трансляцию
 start /min "" C:\mpv\mpv.com "https://www.youtube.com/playlist?list=PL2BlfuqKJ9uyGgbUQ_1OdX_4e_trfdzEe"
+yt-dlp.exe -U
 timeout /t 22
 exit
 
