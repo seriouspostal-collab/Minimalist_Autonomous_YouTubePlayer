@@ -226,6 +226,7 @@ To easily launch your YouTube playlist in the background without lingering conso
 @echo off
 REM Run mpv to launch your YouTube playlist or stream URL
 start /min "" C:\mpv\mpv.com "https://www.youtube.com/playlist?list=PL2BlfuqKJ9uyGgbUQ_1OdX_4e_trfdzEe"
+yt-dlp.exe -U
 timeout /t 22
 exit
 
